@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>게시판</h1>
+<header th:replace="layout/layout :: header"></header>
+<hr>
+<h2>회원 목록</h2>
+<table style="border: black">
+    <thead>
+        <tr>
+            <th>회원번호</th>
+            <th>회원이름</th>
+            <th>회원유형</th>
+            <th>가입일자</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="memberList : ${memberList}">
+            <th><span th:text="${memberList.mno}"></span></th>
+            <th><span th:text="${memberList.name}"></span></th>
+            <th><span th:text="${memberList.type}"></span></th>
+            <th><span th:text="${memberList.regDate}"></span></th>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<h2>게시판 목록</h2>
+<button id="writeBtn">글쓰기</button>
+<table style="border: black">
+    <thead>
+    <tr>
+        <th>게시판번호</th>
+        <th>제목</th>
+        <th>글쓴이</th>
+        <th>생성일</th>
+        <th>조회수</th>
+        <th>추천수</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

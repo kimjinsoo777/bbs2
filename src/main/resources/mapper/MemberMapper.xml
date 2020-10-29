@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.bbs.mapper.MemberMapper">
+    <insert id="join">
+        insert into member values (
+            member_seq.nextval,
+            #{id},
+            #{password},
+            #{name},
+            '일반',
+            sysdate
+        )
+    </insert>
+
+    <select id="login" resultType="com.example.bbs.domain.Member">
+        select * from member
+        where id = #{id}
+        and password = #{password}
+    </select>
+
+    <select id="memberList" resultType="com.example.bbs.domain.MemberList">
+        select * from Member
+    </select>
+</mapper>

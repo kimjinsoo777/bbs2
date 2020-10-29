@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    제목 : <input type="text" id="title"><br>
+    내용 : <textarea id="content" rows="10" cols="30"></textarea><br>
+    글쓴이 : <input type="text" id="writer" th:value="${session.user.name}"><br>
+
+    <button id="write">완료</button>
+    <button id="update">수정</button>
+    <button id="delete">삭제</button>
+    <button id="back">뒤로가기</button>
+</body>
+</html>

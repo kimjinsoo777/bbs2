@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/js/index.js"></script>
+    <meta charset="UTF-8">
+    <title>BBS</title>
+</head>
+<body>
+    <header th:fragment="header">
+        <div th:if="${session.user == null}">
+            <button id="loginBtn">로그인</button>
+            <button id="joinBtn">회원가입</button>
+        </div>
+        <div th:unless="${session.user == null}">
+            회원번호 : <span th:text="${session.user.mno}"></span>&nbsp;
+            회원이름 : <span th:text="${session.user.name}"></span>&nbsp;
+            회원유형 : <span th:text="${session.user.type}"></span>&nbsp;
+
+            <button id ='logout'>로그아웃</button>
+        </div>
+    </header>
+</body>
+</html>
