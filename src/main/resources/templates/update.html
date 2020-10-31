@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    제목 : <input type="text" id="title" th:value="${select.title}"><br>
+    내용 : <textarea id="content" rows="10" cols="30" th:text="${select.content}"></textarea><br>
+    글쓴이 : <input type="text" id="writer" th:value="${select.writer}"><br>
+
+    <button id="update">수정</button>
+    <button id="delete">삭제</button>
+    <button id="back">뒤로가기</button>
+    <button id="reco">추천</button>
+    <input type="hidden" th:value="${session.user.mno}" id="mno">
+    <input type="hidden" th:value="${select.bno}" id="bno">
+
+    <h2>댓글</h2>
+    <ul>
+        <li th:each="replyList : ${replyList}">
+            <p th:text="'작성자 : '+${replyList.reWriter}"></p>
+            <p th:text="'내용 : '+${replyList.reContent}"></p>
+        </li>
+    </ul>
+    작성자 : <input type="text" id="reWriter"><br>
+    내용 : <textarea rows="10" cols="30" id="reContent"></textarea><br>
+    <button id="reply">댓글달기</button>
+    </body>
+</html>

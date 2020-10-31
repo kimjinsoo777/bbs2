@@ -23,7 +23,7 @@
             <th><span th:text="${memberList.mno}"></span></th>
             <th><span th:text="${memberList.name}"></span></th>
             <th><span th:text="${memberList.type}"></span></th>
-            <th><span th:text="${memberList.regDate}"></span></th>
+            <th><span th:text="${#dates.format(memberList.regDate,'yyyy-MM-dd HH:mm:ss')}"></span></th>
         </tr>
     </tbody>
 </table>
@@ -42,8 +42,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-
+    <tr th:each="boardList : ${boardList}">
+        <th><span th:text="${boardList.mno}"></span></th>
+        <th><a th:href="@{'/select/'+${boardList.bno}}"><span th:text="${boardList.title}"></span></a></th>
+        <th><span th:text="${boardList.writer}"></span></th>
+        <th><span th:text="${#dates.format(boardList.regDate,'yyyy-MM-dd HH:mm:ss')}"></span></th>
+        <th><span th:text="${boardList.count}"></span></th>
+        <th><span th:text="${boardList.reco}"></span></th>
     </tr>
     </tbody>
 </table>
